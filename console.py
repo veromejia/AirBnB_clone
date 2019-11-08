@@ -8,7 +8,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_quit(self, line):
-        """ exits the program """
+        """ exits the program using quit """
         raise SystemExit
 
     def help_quit(self):
@@ -16,7 +16,7 @@ class HBNBCommand(cmd.Cmd):
         print("Quit command to exit the program\n")
 
     def do_EOF(self, line):
-        """ exits the program """
+        """ exits the program using EOF """
         return True
 
     def help_EOF(self):
