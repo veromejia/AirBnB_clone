@@ -2,10 +2,24 @@
 """ Console interpreter for the AirBnB clone """
 
 import cmd
+from models.base_model import BaseModel
 
 class HBNBCommand(cmd.Cmd):
     """ commands for the interpreter to execute """
     prompt = "(hbnb) "
+
+    def do_create(self, line):
+        """ creates a new instance of base model """
+        try:
+            if line == "":
+                raise SyntaxError
+            new_base = eval("{}()".format(line))
+            new_base.save()
+            print(new_base.id)
+        except SyntaxError:
+            print("** class name missing **")
+        except NameError:
+            print("** class doesn't exist **")
 
     def do_quit(self, line):
         """ exits the program using quit """
