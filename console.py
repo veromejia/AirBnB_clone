@@ -49,6 +49,29 @@ class HBNBCommand(cmd.Cmd):
         """ show usage """
         print("Prints the string of an instance based on the class and id\n")
 
+    def do_destroy(self, line):
+        if not line:
+            print("** class name missing **")
+            return
+        args = line.split(" ")
+        if args[0] not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+            return
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+        objs = storage.all()
+        key = args[0] + "." + args[1]
+        if key not in objs:
+            print("** no instance found **")
+        else:
+            del storage.all()[key]
+            storage.save()
+
+    def help_destroy(self):
+        """ destroy usage """
+        print("Deletes an instance based on the class name and id\n")
+
     def do_quit(self, line):
         """ exits the program using quit """
         raise SystemExit
