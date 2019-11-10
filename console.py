@@ -21,6 +21,9 @@ class HBNBCommand(cmd.Cmd):
         except NameError:
             print("** class doesn't exist **")
 
+    def help_create(self):
+        print("Creates a new instance of a given class\n")
+
     def do_quit(self, line):
         """ exits the program using quit """
         raise SystemExit
