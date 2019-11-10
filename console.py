@@ -72,6 +72,23 @@ class HBNBCommand(cmd.Cmd):
         """ destroy usage """
         print("Deletes an instance based on the class name and id\n")
 
+    def do_all(self, line):
+        if line != "":
+            args = line.split(" ")
+            if args[0] not in HBNBCommand.classes:
+                print("** class doesn't exist **")
+                return
+            class_insts = [str(o) for k, o in storage.all().items()
+                     if type(o).__name__ == args[0]]
+            print(class_insts)
+        else:
+            all_insts = [str(o) for k, o in storage.all().items()]
+            print(all_insts)
+
+    def help_all(self):
+        """ all usage """
+        print("Prints all str instances based or not on the class name\n")
+
     def do_quit(self, line):
         """ exits the program using quit """
         raise SystemExit
