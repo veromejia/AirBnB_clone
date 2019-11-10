@@ -2,11 +2,13 @@
 """ Console interpreter for the AirBnB clone """
 
 import cmd
+from models import storage
 from models.base_model import BaseModel
 
 class HBNBCommand(cmd.Cmd):
     """ commands for the interpreter to execute """
     prompt = "(hbnb) "
+    classes = ["BaseModel"]
 
     def do_create(self, line):
         """ creates a new instance of base model """
@@ -23,6 +25,29 @@ class HBNBCommand(cmd.Cmd):
 
     def help_create(self):
         print("Creates a new instance of a given class\n")
+
+    def do_show(self, line):
+        """ prints string representation of an instance """
+        if not line:
+            print("** class name missing **")
+            return
+        args = line.split(" ")
+        if args[0] not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+            return
+        if len(args) < 2:
+            print("** instance id missing **")
+            return
+        objs = storage.all()
+        key = args[0] + "." + args[1]
+        if key not in objs:
+            print("** no instance found **")
+        else:
+            print(objs[key])
+
+    def help_show(self):
+        """ show usage """
+        print("Prints the string of an instance based on the class and id\n")
 
     def do_quit(self, line):
         """ exits the program using quit """
