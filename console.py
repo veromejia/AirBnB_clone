@@ -14,12 +14,11 @@ class HBNBCommand(cmd.Cmd):
         """ creates a new instance of base model """
         try:
             if line == "":
-                raise SyntaxError
+                print("** class name missing **")
+                return
             new_base = eval("{}()".format(line))
             new_base.save()
             print(new_base.id)
-        except SyntaxError:
-            print("** class name missing **")
         except NameError:
             print("** class doesn't exist **")
 
@@ -110,8 +109,10 @@ class HBNBCommand(cmd.Cmd):
             return
         if len(args) < 3:
             print("** attribute name missing **")
+            return
         if len(args) < 4:
             print("** value missing **")
+            return
         val = objs[key]
         try:
             attr = getattr(val, args[2])
