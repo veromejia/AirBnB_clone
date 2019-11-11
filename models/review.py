@@ -5,7 +5,7 @@
 from models.base_model import BaseModel
 
 
-class Review:
+class Review(Base_model):
     """Review inherits from BaseModel"""
 
     place_id = ""
