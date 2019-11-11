@@ -2,11 +2,10 @@
 """user Module for AirbnB clone"""
 
 
-import models
 from models.base_model import BaseModel
 
 
-class User:
+class User(BaseModel):
     """User inherits from BaseModel"""
 
     email = ""
