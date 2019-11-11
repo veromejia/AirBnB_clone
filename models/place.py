@@ -9,7 +9,7 @@ from models.base_model import BaseModel
 class Place:
     """Place inherits from BaseModel"""
 
-    city_id =  ""
+    city_id = ""
     user_id = ""
     name = ""
     description = ""

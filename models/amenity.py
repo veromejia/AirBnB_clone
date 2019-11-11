@@ -9,4 +9,3 @@ class Amenity:
     """Amenity inherits from BaseModel"""
 
     name = ""
-    
