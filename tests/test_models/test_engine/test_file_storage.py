@@ -7,7 +7,7 @@ from models.base_model import BaseModel
 import json
 import os
 
-class TestBaseModel(unittest.TestCase):
+class TestFileStorage(unittest.TestCase):
 
     """Test Cases for FileStorage Class"""
 
