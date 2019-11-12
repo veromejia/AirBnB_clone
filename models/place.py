@@ -2,7 +2,6 @@
 """Place Module for AirbnB clone"""
 
 
-import models
 from models.base_model import BaseModel
 
 
