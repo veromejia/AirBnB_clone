@@ -6,7 +6,7 @@ from models.place import Place
 import os
 
 
-class TestUser(unittest.TestCase):
+class TestPlace(unittest.TestCase):
 
     """Test Cases for Place Class"""
 
