@@ -14,7 +14,7 @@ class TestPlace(unittest.TestCase):
         """Imports module"""
         pass
 
-    # ---------------task 8 ----------------
+    # ---------------task 9 ----------------
     def test_init(self):
         my_place = Place()
         self.assertTrue(isinstance(my_place, Place))

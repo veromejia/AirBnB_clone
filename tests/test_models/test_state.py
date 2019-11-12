@@ -14,7 +14,7 @@ class TestState(unittest.TestCase):
         """Imports module"""
         pass
 
-    # ---------------task 8 ----------------
+    # ---------------task 9 ----------------
     def test_init(self):
         my_state = State()
         self.assertTrue(isinstance(my_state, State))
