@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""Unittest for Place class"""
+"""Unittest for State class"""
 
 import unittest
 from models.state import State
 import os
 
 
-class TestUser(unittest.TestCase):
+class TestState(unittest.TestCase):
 
-    """Test Cases for Place Class"""
+    """Test Cases for State Class"""
 
     def setUp(self):
         """Imports module"""
