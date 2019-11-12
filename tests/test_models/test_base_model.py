@@ -8,6 +8,7 @@ from time import sleep
 import models
 import os
 
+
 class TestBaseModel(unittest.TestCase):
 
     """Test Cases for BaseModel Class"""
