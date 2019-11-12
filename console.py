@@ -11,6 +11,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
     """ commands for the interpreter to execute """
     prompt = "(hbnb) "
@@ -87,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
                 return
             class_insts = [str(o) for k, o in storage.all().items()
-                     if type(o).__name__ == args[0]]
+                           if type(o).__name__ == args[0]]
             print(class_insts)
         else:
             all_insts = [str(o) for k, o in storage.all().items()]
