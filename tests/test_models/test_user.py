@@ -28,9 +28,6 @@ class TestUser(unittest.TestCase):
         self.assertTrue(hasattr(my_user, "created_at"))
         self.assertTrue(hasattr(my_user, "updated_at"))
         self.assertTrue(hasattr(my_user, "id"))
-
-    def test_attributes(self):
-        my_user = User()
         self.assertTrue(hasattr(my_user, "email"))
 
 if __name__ == "__main__":
