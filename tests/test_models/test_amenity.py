@@ -16,7 +16,7 @@ class TestAmenity(unittest.TestCase):
 
     # ---------------task 9 ----------------
     def test_init(self):
-        my_amenity= Amenity()
+        my_amenity = Amenity()
         self.assertTrue(isinstance(my_amenity, Amenity))
 
     def test_sub_class(self):

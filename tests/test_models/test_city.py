@@ -16,7 +16,7 @@ class TestCity(unittest.TestCase):
 
     # ---------------task 9 ----------------
     def test_init(self):
-        my_city= City()
+        my_city = City()
         self.assertTrue(isinstance(my_city, City))
 
     def test_sub_class(self):
