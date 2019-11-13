@@ -15,7 +15,6 @@ import unittest
 import uuid
 
 
-
 class TestBaseModel(unittest.TestCase):
     """Test Cases for the BaseModel class"""
 
@@ -149,15 +148,15 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str(e.exception), msg)
 
     def test_to_dict_attr(self):
-      """ created_at, updated_at values """
-      t = BaseModel()
-      time_format = "%Y-%m-%dT%H:%M:%S.%f"
-      dicti = t.to_dict()
-      self.assertEqual(dicti["created_at"], t.created_at.strftime(time_format))
-      self.assertEqual(dicti["updated_at"], t.updated_at.strftime(time_format))
-      self.assertEqual(dicti["__class__"], "BaseModel")
-      self.assertEqual(type(dicti["created_at"]), str)
-      self.assertEqual(type(dicti["updated_at"]), str)
+        """ created_at, updated_at values """
+        t = BaseModel()
+        time_format = "%Y-%m-%dT%H:%M:%S.%f"
+        d = t.to_dict()
+        self.assertEqual(d["created_at"], t.created_at.strftime(time_format))
+        self.assertEqual(d["updated_at"], t.updated_at.strftime(time_format))
+        self.assertEqual(d["__class__"], "BaseModel")
+        self.assertEqual(type(d["created_at"]), str)
+        self.assertEqual(type(d["updated_at"]), str)
 
 if __name__ == '__main__':
     unittest.main()
