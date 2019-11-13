@@ -11,23 +11,25 @@ import os
 
 class TestFileStorage(unittest.TestCase):
 
-    """Test Cases for FileStorage Class"""
+    @classmethod
+    def setUpClass(cls):
+        """sepup class"""
+        print('setupClass')
+
+    @classmethod
+    def tearDownClass(cls):
+        """teardownclass"""
+        print('teardownClass')
+
     def setUp(self):
-        """Sets up test methods."""
-        pass
+        """setup method"""
+        my_storage = FileStorage()
 
     def tearDown(self):
-        """Tears down test methods."""
-        self.resetStorage()
-        pass
+        """tearDown"""
+        print('tearDown\n')
 
-    def resetStorage(self):
-        """Resets FileStorage data."""
-        FileStorage._FileStorage__objects = {}
-        if os.path.isfile(FileStorage._FileStorage__file_path):
-            os.remove(FileStorage._FileStorage__file_path)
-
-    # ---------------task 5 ----------------
+# ---------------task 5 ----------------
     def test_file_path(self):
         my_storage = FileStorage()
         self.assertTrue(isinstance(my_storage._FileStorage__file_path, str))
