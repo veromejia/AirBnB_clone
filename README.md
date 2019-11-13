@@ -1,7 +1,7 @@
 # AirBnB_clone
 
 ---
-##Description
+## Description
 The Airbnb clone is a copy of the Airbnb. Only some features will be implemented, The goal of the project is to deploy on our own server a simple copy of the AirBnB website.
 
 ## The command interpreter will be used in subsequent AirBnb projects to manage objects and clases. in our case, we want to be able to manage the objects of our project:
@@ -12,16 +12,16 @@ Do operations on objects (count, compute stats, etc…)
 Update attributes of an object
 Destroy an object
   
-##Usage
+## Usage
 The console can be run in interactive and non-interactive mode.
 
-##Non-Interactive Mode
+## Non-Interactive Mode
 
 To run a command in non-interactive mode, echo the desired command and pipe it into the console like so:
 ```
 echo "<command>" | ./console.py
 ```
-## Examples
+### Examples
 ```
 echo "create BaseModel" | ./console.py
 ```
@@ -30,7 +30,7 @@ echo "create BaseModel" | ./console.py
 echo "show BaseModel id-here" | ./console.py
 ```
 
-### Interactive Mode
+## Interactive Mode
 
 To run in interactive mode:
 
@@ -39,7 +39,7 @@ To run in interactive mode:
 ```
 Then type the desired commands inside of the program.
 
-##Examples
+### Examples
 
 ```
 (hbnb) create BaseModel
