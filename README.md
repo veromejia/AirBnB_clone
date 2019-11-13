@@ -21,7 +21,7 @@ To run a command in non-interactive mode, echo the desired command and pipe it i
 ```
 echo "<command>" | ./console.py
 ```
-## Examples
+### Examples
 ```
 echo "create BaseModel" | ./console.py
 ```
@@ -30,7 +30,7 @@ echo "create BaseModel" | ./console.py
 echo "show BaseModel id-here" | ./console.py
 ```
 
-### Interactive Mode
+## Interactive Mode
 
 To run in interactive mode:
 
@@ -39,7 +39,7 @@ To run in interactive mode:
 ```
 Then type the desired commands inside of the program.
 
-## Examples
+### Examples
 
 ```
 (hbnb) create BaseModel
