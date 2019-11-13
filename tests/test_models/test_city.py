@@ -3,7 +3,7 @@
 
 import unittest
 from models.city import City
-import os
+import pep8
 
 
 class TestCity(unittest.TestCase):
@@ -15,10 +15,8 @@ class TestCity(unittest.TestCase):
 
     # ---------------task 9 ----------------
     def test_pep8(self):
-        style = pep8.StyleGuide(quiet=True)
-        result = style.check_files(['models/user.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/user.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
     def test_init(self):
         my_city = City()

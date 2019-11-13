@@ -3,7 +3,7 @@
 
 import unittest
 from models.state import State
-import os
+import pep8
 
 
 class TestState(unittest.TestCase):
@@ -14,6 +14,10 @@ class TestState(unittest.TestCase):
         pass
 
     # ---------------task 9 ----------------
+    def test_pep8(self):
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/user.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
+
     def test_init(self):
         my_state = State()
         self.assertTrue(isinstance(my_state, State))
