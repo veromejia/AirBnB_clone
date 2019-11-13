@@ -73,18 +73,6 @@ class TestBaseModel(unittest.TestCase):
         my_model = BaseModel()
         self.assertTrue("updated_at" in my_model.to_dict())
 
-    def test_to_dict_attr(self):
-        """ created_at, updated_at values """
-        t = BaseModel()
-        time_format = "%Y-%m-%dT%H:%M:%S.%f"
-        dicti = brba.to_dict()
-        self.assertEqual(dicti["created_at"], t.created_at.strftime(time_format))
-        self.assertEqual(dicti["updated_at"], t.updated_at.strftime(time_format))
-        self.assertEqual(dicti["__class__"], "BaseModel")
-        self.assertEqual(type(dicti["created_at"]), str)
-        self.assertEqual(type(dicti["updated_at"]), str)
-
-
     # -----------task 4 --------------------
 
     def test_init(self):
