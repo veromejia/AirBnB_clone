@@ -15,7 +15,6 @@ import unittest
 import uuid
 
 
-
 class TestBaseModel(unittest.TestCase):
     """Test Cases for the BaseModel class"""
 
@@ -29,35 +28,35 @@ class TestBaseModel(unittest.TestCase):
         pass
 
     def resetStorage(self):
-        """Resets FileStorage data."""
+        """Resets FileStorage data"""
         FileStorage._FileStorage__objects = {}
         if os.path.isfile(FileStorage._FileStorage__file_path):
             os.remove(FileStorage._FileStorage__file_path)
 
-    def test_3_instantiation(self):
-        """Tests instantiation of BaseModel class."""
+    def test_instantiation(self):
+        """instantiation of BaseModel class"""
 
         b = BaseModel()
         self.assertEqual(str(type(b)), "<class 'models.base_model.BaseModel'>")
         self.assertIsInstance(b, BaseModel)
         self.assertTrue(issubclass(type(b), BaseModel))
 
-    def test_3_init_no_args(self):
-        """Tests __init__ with no arguments."""
+    def test_init_no_args(self):
+        """Test __init__ with no arguments"""
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.__init__()
         msg = "__init__() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
-    def test_3_init_many_args(self):
-        """Tests __init__ with many arguments."""
+    def test_init_with_args(self):
+        """Tests __init__ with  arguments"""
         self.resetStorage()
         args = [i for i in range(1000)]
         b = BaseModel(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
         b = BaseModel(*args)
 
-    def test_3_datetime_created(self):
+    def test_created_datetime(self):
         """Tests if updated_at & created_at are current at creation."""
         date_now = datetime.now()
         b = BaseModel()
@@ -66,12 +65,12 @@ class TestBaseModel(unittest.TestCase):
         diff = b.created_at - date_now
         self.assertTrue(abs(diff.total_seconds()) < 0.1)
 
-    def test_3_id(self):
-        """Tests for unique user ids."""
+    def test_id_len(self):
+        """test len id"""
         l = [BaseModel().id for i in range(1000)]
         self.assertEqual(len(set(l)), len(l))
 
-    def test_3_save(self):
+    def test_save(self):
         """Tests the public instance method save()."""
 
         b = BaseModel()
@@ -132,16 +131,16 @@ class TestBaseModel(unittest.TestCase):
             f.seek(0)
             self.assertEqual(json.load(f), d)
 
-    def test_5_save_no_args(self):
-        """Tests save() with no arguments."""
+    def test_save_no_args(self):
+        """Tests save with no arguments."""
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.save()
         msg = "save() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
-    def test_5_save_excess_args(self):
-        """Tests save() with too many arguments."""
+    def test_save_with_args(self):
+        """Tests save with many arguments."""
         self.resetStorage()
         with self.assertRaises(TypeError) as e:
             BaseModel.save(self, 98)
@@ -149,16 +148,15 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(str(e.exception), msg)
 
     def test_to_dict_attr(self):
-      """ created_at, updated_at values """
-      brba = BaseModel()
-      time_format = "%Y-%m-%dT%H:%M:%S.%f"
-      dicti = brba.to_dict()
-      self.assertEqual(dicti["created_at"], brba.created_at.strftime(time_format))
-      self.assertEqual(dicti["updated_at"], brba.updated_at.strftime(time_format))
-      self.assertEqual(dicti["__class__"], "BaseModel")
-      self.assertEqual(type(dicti["created_at"]), str)
-      self.assertEqual(type(dicti["updated_at"]), str) 
-
+        """ created_at, updated_at values """
+        t = BaseModel()
+        time_format = "%Y-%m-%dT%H:%M:%S.%f"
+        d = t.to_dict()
+        self.assertEqual(d["created_at"], t.created_at.strftime(time_format))
+        self.assertEqual(d["updated_at"], t.updated_at.strftime(time_format))
+        self.assertEqual(d["__class__"], "BaseModel")
+        self.assertEqual(type(d["created_at"]), str)
+        self.assertEqual(type(d["updated_at"]), str)
 
 if __name__ == '__main__':
     unittest.main()
