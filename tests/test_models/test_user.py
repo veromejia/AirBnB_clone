@@ -12,60 +12,40 @@ import os
 class TestUser(unittest.TestCase):
 
     """Test Cases for User Class"""
-    @classmethod
-    def setUpClass(cls):
-        """set up for test"""
-        cls.user = User()
-        cls.user.first_name = "Kevin"
-        cls.user.last_name = "Yook"
-        cls.user.email = "yook00627@gmamil.com"
-        cls.user.password = "secret"
+    def setUp(self):
+        """Imports module"""
+        pass
 
-    @classmethod
-    def teardown(cls):
-        """at the end of the test this will tear it down"""
-        del cls.user
+    def test_init(self):
+        my_user = User()
+        self.assertTrue(isinstance(my_user, User))
 
-    def tearDown(self):
-        """teardown"""
-        try:
-            os.remove("file.json")
-        except Exception:
-            pass
+    def test_sub_class(self):
+        my_user = User()
+        self.assertTrue(issubclass(my_user.__class__, User))
 
-    def test_checking_for_docstring_User(self):
-        """checking for docstrings"""
-        self.assertIsNotNone(User.__doc__)
+    def test_inheritance(self):
+        my_user = User()
+        self.assertTrue(hasattr(my_user, "created_at"))
+        self.assertTrue(hasattr(my_user, "updated_at"))
+        self.assertTrue(hasattr(my_user, "id"))
 
-    def test_attributes_User(self):
-        """chekcing if User have attributes"""
-        self.assertTrue('email' in self.user.__dict__)
-        self.assertTrue('id' in self.user.__dict__)
-        self.assertTrue('created_at' in self.user.__dict__)
-        self.assertTrue('updated_at' in self.user.__dict__)
-        self.assertTrue('password' in self.user.__dict__)
-        self.assertTrue('first_name' in self.user.__dict__)
-        self.assertTrue('last_name' in self.user.__dict__)
+    def test_none(self):
+        my_user = User()
+        self.assertIsNotNone(my_user.id)
+        self.assertIsNotNone(my_user.created_at)
+        self.assertIsNotNone(my_user.updated_at)
 
-    def test_is_subclass_User(self):
-        """test if User is subclass of Basemodel"""
-        self.assertTrue(issubclass(self.user.__class__, BaseModel), True)
+    def test_attr(self):
+        my_user = User()
+        self.assertTrue(hasattr(my_user, "email"))
+        self.assertTrue(hasattr(my_user, "password"))
+        self.assertTrue(hasattr(my_user, "first_name"))
+        self.assertTrue(hasattr(my_user, "last_name"))
 
-    def test_attribute_types_User(self):
-        """test attribute type for User"""
-        self.assertEqual(type(self.user.email), str)
-        self.assertEqual(type(self.user.password), str)
-        self.assertEqual(type(self.user.first_name), str)
-        self.assertEqual(type(self.user.first_name), str)
-
-    def test_save_User(self):
-        """test if the save works"""
-        self.user.save()
-        self.assertNotEqual(self.user.created_at, self.user.updated_at)
-
-    def test_to_dict_User(self):
-        """test if dictionary works"""
-        self.assertEqual('to_dict' in dir(self.user), True)
+    def test_dict(self):
+        my_user = User()
+        self.assertTrue("to_dict" in dir(my_user))
 
 if __name__ == "__main__":
     unittest.main()
