@@ -103,6 +103,13 @@ class TestBaseModel(unittest.TestCase):
         msg = "to_dict() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
+    def test_str(self):
+        """ test str attribute"""
+        my_model = BaseModel()
+        a = "[{}] ({}) {}".\
+            format(my_model.__class__.__name__, my_model.id, my_model.__dict__)
+        self.assertEqual(str(my_model), a)
+
     def test_3_to_dict_excess_args(self):
         """Tests to_dict() with too many arguments."""
         self.resetStorage()
