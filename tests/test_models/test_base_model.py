@@ -77,13 +77,12 @@ class TestBaseModel(unittest.TestCase):
         """ created_at, updated_at values """
         t = BaseModel()
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
-        dicti = t.to_dict()
-        self.assertEqual(dicti["created_at"], t.created_at.strftime(time_format))
-        self.assertEqual(dicti["updated_at"], t.updated_at.strftime(time_format))
-        self.assertEqual(dicti["__class__"], "BaseModel")
-        self.assertEqual(type(dicti["created_at"]), str)
-        self.assertEqual(type(dicti["updated_at"]), str)
-
+        dic = t.to_dict()
+        self.assertEqual(dic["created_at"], t.created_at.strftime(time_format))
+        self.assertEqual(dic["updated_at"], t.updated_at.strftime(time_format))
+        self.assertEqual(dic["__class__"], "BaseModel")
+        self.assertEqual(type(dic["created_at"]), str)
+        self.assertEqual(type(dic["updated_at"]), str)
 
     # -----------task 4 --------------------
 
