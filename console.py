@@ -181,10 +181,6 @@ class HBNBCommand(cmd.Cmd):
         elif line == ".count()":
             self.do_count("Review")
 
-    def help_update(self):
-        """ update usage """
-        print("update <class name> <id> <attribute name> <attribute value>\n")
-
     def do_quit(self, line):
         """ exits the program using quit """
         raise SystemExit

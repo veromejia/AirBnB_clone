@@ -7,6 +7,7 @@ import unittest
 from models.user import User
 from models.base_model import BaseModel
 import pep8
+import os
 
 class TestUser(unittest.TestCase):
 
@@ -15,10 +16,9 @@ class TestUser(unittest.TestCase):
         """Imports module"""
         pass
 
-    def test_pep8_conformance(self):
-        """Test that User conforms to PEP8"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/user.py'])
+    def test_pep8(self):
+        style = pep8.StyleGuide(quiet=True)
+        result = style.check_files(['models/user.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
