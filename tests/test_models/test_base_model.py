@@ -1,7 +1,10 @@
+#!/usr/bin/python3
 """Unittest for BaseModel class"""
 
 import unittest
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+from models import storage
 import time
 from datetime import datetime, date, time
 from time import sleep
@@ -90,6 +93,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(type(d["updated_at"]), str)
 
     # -----------task 4 --------------------
+
     def test_init(self):
         """testing init method"""
 
