@@ -26,9 +26,12 @@ class TestCity(unittest.TestCase):
         """Imports module"""
         pass
 
-    def test_pep8(self):
-        style_test = pep8.StyleGuide(quiet=True).check_files(['models/user.py'])
-        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
+    def test_pep8_conformance(self):
+        """Test that City conforms to PEP8"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/city.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
 
     def test_class_method_presence(self):
         """Test that the City methods are all present"""
