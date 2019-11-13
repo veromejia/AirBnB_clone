@@ -49,13 +49,3 @@ class TestCity(unittest.TestCase):
         self.assertIn('save', l1)
         self.assertIn('to_dict', l1)
         self.assertIn('__str__', l1)
-
-    def test_instance_attribute_presence(self):
-        """Test that the City instance attributes are all present"""
-        l1 = dir(City())
-        self.assertIn('id', l1)
-        self.assertIn('updated_at', l1)
-        self.assertIn('created_at', l1)
-        self.assertIn('__class__', l1)
-        self.assertIn('state_id', l1)
-        self.assertIn('name', l1)
