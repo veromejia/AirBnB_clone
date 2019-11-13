@@ -15,15 +15,12 @@ class BaseModel:
         """inicializating BaseModel instance"""
 
         if kwargs and len(kwargs) > 0:
-            for key in kwargs:
-                if key == "created_at":
-                    self.__dict__["created_at"] = datetime.\
-                        strptime(kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
-                elif key == "updated_at":
-                    self.__dict__["updated_at"] = datetime.\
-                        strptime(kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
-                else:
-                    self.__dict__[key] = kwargs[key]
+            for key, value in kwargs.items():
+                if key == 'created_at' or key == 'updated_at':
+                    value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                    setattr(self, key, value)
+                elif key != '__class__':
+                    setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
@@ -45,7 +42,7 @@ class BaseModel:
     def to_dict(self):
         """Return a dictionary containing keys/values of __dict__."""
         my_dict = self.__dict__.copy()
-        my_dict.update({'__class__': str(type(self).__name__)})
+        my_dict["__class__"] = self.__class__.__name__
         my_dict['created_at'] = self.created_at.isoformat()
         my_dict['updated_at'] = self.updated_at.isoformat()
         return my_dict
