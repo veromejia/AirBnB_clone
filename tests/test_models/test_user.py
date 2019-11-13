@@ -45,13 +45,6 @@ class TestUser(unittest.TestCase):
         if path.exists("file.json"):
             remove("file.json")
 
-    def test_pep8_conformance(self):
-        """Test that User conforms to PEP8"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/user.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
-
     def test_class_method_presence(self):
         """Test that the User methods are all present"""
         l1 = dir(User)
