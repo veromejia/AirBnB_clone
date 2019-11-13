@@ -11,7 +11,6 @@ import os
 class TestFileStorage(unittest.TestCase):
 
     """Test Cases for FileStorage Class"""
-
     def setUp(self):
         """Imports module"""
         pass
