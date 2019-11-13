@@ -26,6 +26,12 @@ class TestCity(unittest.TestCase):
         my_city = City()
         self.assertTrue(issubclass(my_city.__class__, City))
 
+    def test_inheritance(self):
+        my_city = City()
+        self.assertTrue(hasattr(my_city, "created_at"))
+        self.assertTrue(hasattr(my_city, "updated_at"))
+        self.assertTrue(hasattr(my_city, "id"))
+
     def test_attr(self):
         my_city = City()
         self.assertTrue(hasattr(my_city, "state_id"))
@@ -36,6 +42,10 @@ class TestCity(unittest.TestCase):
         self.assertIsNotNone(my_city.id)
         self.assertIsNotNone(my_city.created_at)
         self.assertIsNotNone(my_city.updated_at)
+
+    def test_dict(self):
+        my_city = City()
+        self.assertTrue("to_dict" in dir(my_city))
 
 if __name__ == "__main__":
     unittest.main()

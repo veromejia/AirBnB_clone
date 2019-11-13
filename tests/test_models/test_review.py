@@ -38,5 +38,14 @@ class TestReview(unittest.TestCase):
         self.assertIsNotNone(my_review.created_at)
         self.assertIsNotNone(my_review.updated_at)
 
+    def test_inheritance(self):
+        my_review = Review()
+        self.assertTrue(hasattr(my_review, "created_at"))
+        self.assertTrue(hasattr(my_review, "updated_at"))
+        self.assertTrue(hasattr(my_review, "id"))
+
+    def test_dict(self):
+        my_review = Review()
+        self.assertTrue("to_dict" in dir(my_review))
 if __name__ == "__main__":
     unittest.main()
