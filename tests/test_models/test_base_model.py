@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """Unittest for BaseModel class"""
 
-import unittest
+
 import uuid
-from models.base_model import BaseModel
-from models import storage
+import unittest
 import time
+import models
+from models import storage
+from models.base_model import BaseModel
 from datetime import datetime, date, time
 from time import sleep
-import models
-import os
 
 
 class TestBaseModel(unittest.TestCase):
@@ -77,7 +77,7 @@ class TestBaseModel(unittest.TestCase):
         """ created_at, updated_at values """
         t = BaseModel()
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
-        dicti = brba.to_dict()
+        dicti = t.to_dict()
         self.assertEqual(dicti["created_at"], t.created_at.strftime(time_format))
         self.assertEqual(dicti["updated_at"], t.updated_at.strftime(time_format))
         self.assertEqual(dicti["__class__"], "BaseModel")
