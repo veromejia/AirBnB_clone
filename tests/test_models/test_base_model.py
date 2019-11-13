@@ -15,6 +15,21 @@ import os
 class TestBaseModel(unittest.TestCase):
     """Test Cases for BaseModel Class"""
 
+    def setUp(self):
+        """Sets up test methods."""
+        pass
+
+    def tearDown(self):
+        """Tears down test methods."""
+        self.resetStorage()
+        pass
+
+    def resetStorage(self):
+        """Resets FileStorage data."""
+        FileStorage._FileStorage__objects = {}
+        if os.path.isfile(FileStorage._FileStorage__file_path):
+            os.remove(FileStorage._FileStorage__file_path)
+
     def test_id_uuid(self):
         """ checks the type of id is string uuid"""
 
