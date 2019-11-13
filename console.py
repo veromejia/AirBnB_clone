@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+g#!/usr/bin/python3
 """ Console interpreter for the AirBnB clone """
 
 import cmd
@@ -137,7 +137,6 @@ class HBNBCommand(cmd.Cmd):
         """ counts the number of class instances """
         args = line.split(" ")
         count = 0
-        try:
         if args[0] in HBNBCommand.classes:
             storage.reload()
             my_dict = storage.all()
