@@ -21,27 +21,6 @@ from models.engine.file_storage import FileStorage
 
 class TestCity(unittest.TestCase):
     """define variables and methods"""
-
-    def setUp(self):
-        """
-        Sets the public class attributes of the City class back to ""
-        Method called to prepare the test fixture. This is called immediately
-        before calling the test method; other than AssertionError or SkipTest
-        """
-        City.state_id = ""
-        City.name = ""
-
-    def tearDown(self):
-        """
-        Sets the public class attributes of the City class back to ""
-        Method called immediately after the test method has been called and
-        the result recorded
-        """
-        del City.state_id
-        del City.name
-        if path.exists("file.json"):
-            remove("file.json")
-
     def test_pep8_conformance(self):
         """Test that City conforms to PEP8"""
         pep8style = pep8.StyleGuide(quiet=True)
