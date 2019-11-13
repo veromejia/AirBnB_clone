@@ -5,6 +5,7 @@ Unittest for User class
 
 import unittest
 from models.user import User
+from models.base_model import BaseModel
 import os
 
 
@@ -14,8 +15,6 @@ class TestUser(unittest.TestCase):
     def setUp(self):
         """Imports module"""
         pass
-
-    # ---------------task 8 ----------------
 
     def test_init(self):
         my_user = User()
