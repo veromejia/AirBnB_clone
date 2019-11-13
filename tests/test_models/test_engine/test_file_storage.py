@@ -23,7 +23,7 @@ class TestFileStorage(unittest.TestCase):
 
     def setUp(self):
         """setup method"""
-        my_storage = FileStorage()
+        self.my_storage = FileStorage()
 
     def tearDown(self):
         """tearDown"""
@@ -31,47 +31,40 @@ class TestFileStorage(unittest.TestCase):
 
 # ---------------task 5 ----------------
     def test_file_path(self):
-        my_storage = FileStorage()
-        self.assertTrue(isinstance(my_storage._FileStorage__file_path, str))
+        self.assertTrue(isinstance(self.my_storage._FileStorage__file_path, str))
 
     def test_all(self):
-        my_storage = FileStorage()
-        objects = my_storage.all()
+        objects = self.my_storage.all()
         self.assertTrue(isinstance(objects, dict))
 
     def test_all_not_none(self):
-        my_storage = FileStorage()
-        objects = my_storage.all()
+        objects = self.my_storage.all()
         self.assertIsNotNone(objects)
 
     def test_all_object_attr(self):
-        my_storage = FileStorage()
-        objects = my_storage.all()
-        self.assertIs(objects, my_storage._FileStorage__objects)
+        objects = self.my_storage.all()
+        self.assertIs(objects, self.my_storage._FileStorage__objects)
 
     def test_new(self):
-        my_storage = FileStorage()
         my_base = BaseModel()
-        my_storage.new(my_base)
+        self.my_storage.new(my_base)
         key = my_base.__class__.__name__ + '.' + str(my_base.id)
-        self.assertIn(key, my_storage._FileStorage__objects.keys())
+        self.assertIn(key, self.my_storage._FileStorage__objects.keys())
 
     def test_save(self):
-        my_storage = FileStorage()
         my_base = BaseModel()
-        my_storage.new(my_base)
-        my_storage.save()
+        self.my_storage.new(my_base)
+        self.my_storage.save()
         key = my_base.__class__.__name__ + '.' + my_base.id
         with open("file.json", mode='r') as f:
             my_dict = json.load(f)
         self.assertIn(key, my_dict.keys())
 
     def test_reload(self):
-        my_storage = FileStorage()
         my_base = BaseModel()
-        my_storage.new(my_base)
-        my_storage.save()
-        my_storage.reload()
+        self.my_storage.new(my_base)
+        self.my_storage.save()
+        self.my_storage.reload()
         key = my_base.__class__.__name__ + '.' + my_base.id
         with open("file.json", mode='r') as f:
             my_dict = json.load(f)
