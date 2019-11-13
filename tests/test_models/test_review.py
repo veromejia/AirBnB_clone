@@ -26,11 +26,17 @@ class TestReview(unittest.TestCase):
         my_review = Review()
         self.assertTrue(issubclass(my_review.__class__, Review))
 
-    def test_inheritance(self):
+    def test_attr(self):
         my_review = Review()
         self.assertTrue(hasattr(my_review, "place_id"))
         self.assertTrue(hasattr(my_review, "user_id"))
         self.assertTrue(hasattr(my_review, "text"))
+
+    def test_none(self):
+        my_review = Review()
+        self.assertIsNotNone(my_review.id)
+        self.assertIsNotNone(my_review.created_at)
+        self.assertIsNotNone(my_review.updated_at)
 
 if __name__ == "__main__":
     unittest.main()

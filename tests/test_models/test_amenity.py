@@ -26,9 +26,15 @@ class TestAmenity(unittest.TestCase):
         my_amenity = Amenity()
         self.assertTrue(issubclass(my_amenity.__class__, Amenity))
 
-    def test_inheritance(self):
+    def test_attr(self):
         my_amenity = Amenity()
         self.assertTrue(hasattr(my_amenity, "name"))
+
+    def test_none(self):
+        my_amenity = Amenity()
+        self.assertIsNotNone(my_amenity.id)
+        self.assertIsNotNone(my_amenity.created_at)
+        self.assertIsNotNone(my_amenity.updated_at)
 
 if __name__ == "__main__":
     unittest.main()

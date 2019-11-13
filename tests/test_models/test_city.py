@@ -26,10 +26,16 @@ class TestCity(unittest.TestCase):
         my_city = City()
         self.assertTrue(issubclass(my_city.__class__, City))
 
-    def test_inheritance(self):
+    def test_attr(self):
         my_city = City()
         self.assertTrue(hasattr(my_city, "state_id"))
         self.assertTrue(hasattr(my_city, "name"))
+
+    def test_none(self):
+        my_city = City()
+        self.assertIsNotNone(my_city.id)
+        self.assertIsNotNone(my_city.created_at)
+        self.assertIsNotNone(my_city.updated_at)
 
 if __name__ == "__main__":
     unittest.main()

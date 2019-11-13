@@ -26,9 +26,15 @@ class TestState(unittest.TestCase):
         my_state = State()
         self.assertTrue(issubclass(my_state.__class__, State))
 
-    def test_inheritance(self):
+    def test_attr(self):
         my_state = State()
         self.assertTrue(hasattr(my_state, "name"))
+
+    def test_none(self):
+        my_state = State()
+        self.assertIsNotNone(my_state.id)
+        self.assertIsNotNone(my_state.created_at)
+        self.assertIsNotNone(my_state.updated_at)
 
 if __name__ == "__main__":
     unittest.main()
