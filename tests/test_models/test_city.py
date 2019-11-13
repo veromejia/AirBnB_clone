@@ -9,7 +9,6 @@ import os
 class TestCity(unittest.TestCase):
 
     """Test Cases for City Class"""
-
     def setUp(self):
         """Imports module"""
         pass

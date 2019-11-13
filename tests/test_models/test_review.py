@@ -9,7 +9,6 @@ import os
 class TestReview(unittest.TestCase):
 
     """Test Cases for Review Class"""
-
     def setUp(self):
         """Imports module"""
         pass

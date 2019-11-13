@@ -2,7 +2,6 @@
 """Unittest for BaseModel class"""
 
 import unittest
-import uuid
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
@@ -15,8 +14,6 @@ import os
 
 class TestBaseModel(unittest.TestCase):
     """Test Cases for BaseModel Class"""
-
-    # ---------------task 3 ----------------
 
     def test_id_uuid(self):
         """ checks the type of id is string uuid"""
@@ -83,19 +80,6 @@ class TestBaseModel(unittest.TestCase):
         my_model = BaseModel()
         self.assertTrue("updated_at" in my_model.to_dict())
 
-    def test_to_dict(self):
-        """ dictionary conversion """
-        my_modl = BaseModel()
-        my_modl.name = "Holberton"
-        my_modl.my_number = 89
-        my_json = my_modl.to_dict()
-        self.assertEqual(my_json["id"], my_modl.id)
-        self.assertEqual(my_json["name"], "Holberton")
-        self.assertEqual(my_json["my_number"], 89)
-        self.assertEqual(my_json["__class__"], "BaseModel")
-        self.assertEqual(my_json["created_at"], my_modl.created_at.isoformat())
-        self.assertEqual(my_json["updated_at"], my_modl.updated_at.isoformat())
-
     def test_to_dict_attr(self):
         """ created_at, updated_at values """
 
@@ -123,7 +107,6 @@ class TestBaseModel(unittest.TestCase):
         my_model_dict = my_model.to_dict()
         new_model = BaseModel(**my_model_dict)
         self.assertEqual(new_model.id, my_model.id)
-
 
 if __name__ == "__main__":
     unittest.main()

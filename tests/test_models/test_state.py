@@ -9,7 +9,6 @@ import os
 class TestState(unittest.TestCase):
 
     """Test Cases for State Class"""
-
     def setUp(self):
         """Imports module"""
         pass

@@ -137,11 +137,13 @@ class HBNBCommand(cmd.Cmd):
         """ counts the number of class instances """
         args = line.split(" ")
         count = 0
-        storage.reload()
-        my_dict = storage.all()
-        for key in my_dict.keys():
-            count += 1
-        print(count)
+        if args[0] in HBNBCommand.classes:
+            storage.reload()
+            my_dict = storage.all()
+            for key in my_dict.keys():
+                if args[1] in str(my_dict[key]):
+                    count += 1
+            print(count)
 
     def do_User(self, line):
         if line == ".all()":

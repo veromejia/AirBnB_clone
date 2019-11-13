@@ -9,7 +9,6 @@ import os
 class TestAmenity(unittest.TestCase):
 
     """Test Cases for Amenity Class"""
-
     def setUp(self):
         """Imports module"""
         pass
