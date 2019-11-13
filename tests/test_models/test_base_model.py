@@ -17,4 +17,3 @@ class TestBaseModel(unittest.TestCase):
     """Test Cases for BaseModel Class"""
 
     # ---------------task 3 ----------------
-
