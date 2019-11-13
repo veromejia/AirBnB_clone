@@ -18,6 +18,7 @@ class TestUser(unittest.TestCase):
     def test_init(self):
         my_user = User()
         self.assertTrue(isinstance(my_user, User))
+
     def test_sub_class(self):
         my_user = User()
         self.assertTrue(issubclass(my_user.__class__, User))
@@ -27,9 +28,12 @@ class TestUser(unittest.TestCase):
         self.assertTrue(hasattr(my_user, "created_at"))
         self.assertTrue(hasattr(my_user, "updated_at"))
         self.assertTrue(hasattr(my_user, "id"))
-        self.assertTrue(hasattr(User(), "created_at"))
-        self.assertTrue(hasattr(User(), "updated_at"))
-        self.assertTrue(hasattr(User(), "id"))
+
+    def test_none(self):
+        my_user = User()
+        self.assertIsNotNone(my_user.id)
+        self.assertIsNotNone(my_user.created_at)
+        self.assertIsNotNone(my_user.updated_at)
 
     def test_attr(self):
         my_user = User()
