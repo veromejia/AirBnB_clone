@@ -12,3 +12,7 @@ class TestBaseModel(unittest.TestCase):
     def check_name(self):
         """check the name"""
         my_model = BaseModel()
+
+
+if __name__ == '__main__':
+    unittest.main()
