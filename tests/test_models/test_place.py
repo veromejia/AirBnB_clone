@@ -26,7 +26,7 @@ class TestPlace(unittest.TestCase):
         my_place = Place()
         self.assertTrue(issubclass(my_place.__class__, Place))
 
-    def test_inheritance(self):
+    def test_attr(self):
         my_place = Place()
         self.assertTrue(hasattr(my_place, "city_id"))
         self.assertTrue(hasattr(my_place, "user_id"))
@@ -39,6 +39,22 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(hasattr(my_place, "latitude"))
         self.assertTrue(hasattr(my_place, "longitude"))
         self.assertTrue(hasattr(my_place, "amenity_ids"))
+
+    def test_none(self):
+        my_place = Place()
+        self.assertIsNotNone(my_place.id)
+        self.assertIsNotNone(my_place.created_at)
+        self.assertIsNotNone(my_place.updated_at)
+
+    def test_inheritance(self):
+        my_place = Place()
+        self.assertTrue(hasattr(my_place, "created_at"))
+        self.assertTrue(hasattr(my_place, "updated_at"))
+        self.assertTrue(hasattr(my_place, "id"))
+
+    def test_dict(self):
+        my_place = Place()
+        self.assertTrue("to_dict" in dir(my_place))
 
 if __name__ == "__main__":
     unittest.main()

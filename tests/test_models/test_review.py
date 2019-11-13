@@ -26,11 +26,26 @@ class TestReview(unittest.TestCase):
         my_review = Review()
         self.assertTrue(issubclass(my_review.__class__, Review))
 
-    def test_inheritance(self):
+    def test_attr(self):
         my_review = Review()
         self.assertTrue(hasattr(my_review, "place_id"))
         self.assertTrue(hasattr(my_review, "user_id"))
         self.assertTrue(hasattr(my_review, "text"))
 
+    def test_none(self):
+        my_review = Review()
+        self.assertIsNotNone(my_review.id)
+        self.assertIsNotNone(my_review.created_at)
+        self.assertIsNotNone(my_review.updated_at)
+
+    def test_inheritance(self):
+        my_review = Review()
+        self.assertTrue(hasattr(my_review, "created_at"))
+        self.assertTrue(hasattr(my_review, "updated_at"))
+        self.assertTrue(hasattr(my_review, "id"))
+
+    def test_dict(self):
+        my_review = Review()
+        self.assertTrue("to_dict" in dir(my_review))
 if __name__ == "__main__":
     unittest.main()

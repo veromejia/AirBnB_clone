@@ -26,9 +26,25 @@ class TestAmenity(unittest.TestCase):
         my_amenity = Amenity()
         self.assertTrue(issubclass(my_amenity.__class__, Amenity))
 
-    def test_inheritance(self):
+    def test_attr(self):
         my_amenity = Amenity()
         self.assertTrue(hasattr(my_amenity, "name"))
+
+    def test_none(self):
+        my_amenity = Amenity()
+        self.assertIsNotNone(my_amenity.id)
+        self.assertIsNotNone(my_amenity.created_at)
+        self.assertIsNotNone(my_amenity.updated_at)
+
+    def test_inheritance(self):
+        my_amenity = Amenity()
+        self.assertTrue(hasattr(my_amenity, "created_at"))
+        self.assertTrue(hasattr(my_amenity, "updated_at"))
+        self.assertTrue(hasattr(my_amenity, "id"))
+
+    def test_dict(self):
+        my_amenity = Amenity()
+        self.assertTrue("to_dict" in dir(my_amenity))
 
 if __name__ == "__main__":
     unittest.main()
