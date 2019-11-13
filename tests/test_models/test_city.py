@@ -33,24 +33,31 @@ class TestCity(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-    def test_class_method_presence(self):
-        """Test that the City methods are all present"""
-        l1 = dir(City)
-        self.assertIn('__init__', l1)
-        self.assertIn('save', l1)
-        self.assertIn('to_dict', l1)
-        self.assertIn('__str__', l1)
+    def test_init(self):
+        my_city = City()
+        self.assertTrue(isinstance(my_city, City))
 
-    def test_class_attribute_presence(self):
-        """Test that the City attributes are all present"""
-        l1 = dir(City)
-        self.assertIn('state_id', l1)
-        self.assertIn('name', l1)
+    def test_sub_class(self):
+        my_city = City()
+        self.assertTrue(issubclass(my_city.__class__, City))
 
-    def test_instance_method_presence(self):
-        """Test that the City instance has the same methods"""
-        l1 = dir(City())
-        self.assertIn('__init__', l1)
-        self.assertIn('save', l1)
-        self.assertIn('to_dict', l1)
-        self.assertIn('__str__', l1)
+    def test_inheritance(self):
+        my_city = City()
+        self.assertTrue(hasattr(my_city, "created_at"))
+        self.assertTrue(hasattr(my_city, "updated_at"))
+        self.assertTrue(hasattr(my_city, "id"))
+
+    def test_attr(self):
+        my_city = City()
+        self.assertTrue(hasattr(my_city, "state_id"))
+        self.assertTrue(hasattr(my_city, "name"))
+
+    def test_none(self):
+        my_city = City()
+        self.assertIsNotNone(my_city.id)
+        self.assertIsNotNone(my_city.created_at)
+        self.assertIsNotNone(my_city.updated_at)
+
+    def test_dict(self):
+        my_city = City()
+        self.assertTrue("to_dict" in dir(my_city))
