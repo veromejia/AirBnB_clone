@@ -14,6 +14,12 @@ class TestAmenity(unittest.TestCase):
         pass
 
     # ---------------task 9 ----------------
+    def test_pep8(self):
+        style = pep8.StyleGuide(quiet=True)
+        result = style.check_files(['models/user.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
     def test_init(self):
         my_amenity = Amenity()
         self.assertTrue(isinstance(my_amenity, Amenity))

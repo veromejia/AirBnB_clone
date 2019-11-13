@@ -17,10 +17,8 @@ class TestUser(unittest.TestCase):
         pass
 
     def test_pep8(self):
-        style = pep8.StyleGuide(quiet=True)
-        result = style.check_files(['models/user.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/user.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
     def test_init(self):
         my_user = User()
