@@ -25,10 +25,20 @@ class TestUser(unittest.TestCase):
 
     def test_inheritance(self):
         my_user = User()
-        self.assertTrue(hasattr(my_user, "created_at"))
-        self.assertTrue(hasattr(my_user, "updated_at"))
-        self.assertTrue(hasattr(my_user, "id"))
+        self.assertTrue(hasattr(User(), "created_at"))
+        self.assertTrue(hasattr(User(), "updated_at"))
+        self.assertTrue(hasattr(User(), "id"))
+
+    def test_attr(self):
+        my_user = User()
         self.assertTrue(hasattr(my_user, "email"))
+        self.assertTrue(hasattr(my_user, "password"))
+        self.assertTrue(hasattr(my_user, "first_name"))
+        self.assertTrue(hasattr(my_user, "last_name"))
+
+    def test_dict(self):
+        my_user = User()
+        self.assertTrue("to_dict" in dir(my_user))
 
 if __name__ == "__main__":
     unittest.main()
