@@ -129,6 +129,30 @@ class HBNBCommand(cmd.Cmd):
             setattr(val, args[2], args[3])
         storage.save()
 
+    def do_User(self, line):
+        if line == ".all()":
+            self.do_all("User")
+
+    def do_State(self, line):
+        if line == ".all()":
+            self.do_all("State")
+
+    def do_City(self, line):
+        if line == ".all()":
+            self.do_all("City")
+
+    def do_Amenity(self, line):
+        if line == ".all()":
+            self.do_all("Amenity")
+
+    def do_Place(self, line):
+        if line == ".all()":
+            self.do_all("Place")
+
+    def do_Review(self, line):
+        if line == ".all()":
+            self.do_all("Review")
+
     def help_update(self):
         """ update usage """
         print("update <class name> <id> <attribute name> <attribute value>\n")
