@@ -129,29 +129,55 @@ class HBNBCommand(cmd.Cmd):
             setattr(val, args[2], args[3])
         storage.save()
 
+    def help_update(self):
+        """ update usage """
+        print("Updates an instance based on the class name and id\n")
+
+    def do_count(self, line):
+        """ counts the number of class instances """
+        args = line.split(" ")
+        count = 0
+        storage.reload()
+        my_dict = storage.all()
+        for key in my_dict.keys():
+            count += 1
+        print(count)
+
     def do_User(self, line):
         if line == ".all()":
             self.do_all("User")
+        elif line == ".count()":
+            self.do_count("User")
 
     def do_State(self, line):
         if line == ".all()":
             self.do_all("State")
+        elif line == ".count()":
+            self.do_count("State")
 
     def do_City(self, line):
         if line == ".all()":
             self.do_all("City")
+        elif line == ".count()":
+            self.do_count("City")
 
     def do_Amenity(self, line):
         if line == ".all()":
             self.do_all("Amenity")
+        elif line == ".count()":
+            self.do_count("Amenity")
 
     def do_Place(self, line):
         if line == ".all()":
             self.do_all("Place")
+        elif line == ".count()":
+            self.do_count("Place")
 
     def do_Review(self, line):
         if line == ".all()":
             self.do_all("Review")
+        elif line == ".count()":
+            self.do_count("Review")
 
     def help_update(self):
         """ update usage """
