@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-"""Unittest for City class"""
-
+"""
+Unittest for the City class
+Test files by using the following command line:
+python3 -m unittest tests/test_models/test_city.py
+"""
 import unittest
 import pep8
 # import sys
@@ -17,8 +20,8 @@ from models.engine.file_storage import FileStorage
 
 
 class TestCity(unittest.TestCase):
+    """define variables and methods"""
 
-    """Test Cases for City Class"""
     def setUp(self):
         """
         Sets the public class attributes of the City class back to ""
@@ -39,39 +42,12 @@ class TestCity(unittest.TestCase):
         if path.exists("file.json"):
             remove("file.json")
 
-    # ---------------task 9 ----------------
-    def test_pep8(self):
-        style_test = pep8.StyleGuide(quiet=True).check_files(['models/user.py'])
-        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
-
-    def test_init(self):
-        my_city = City()
-        self.assertTrue(isinstance(my_city, City))
-
-    def test_sub_class(self):
-        my_city = City()
-        self.assertTrue(issubclass(my_city.__class__, City))
-
-    def test_inheritance(self):
-        my_city = City()
-        self.assertTrue(hasattr(my_city, "created_at"))
-        self.assertTrue(hasattr(my_city, "updated_at"))
-        self.assertTrue(hasattr(my_city, "id"))
-
-    def test_attr(self):
-        my_city = City()
-        self.assertTrue(hasattr(my_city, "state_id"))
-        self.assertTrue(hasattr(my_city, "name"))
-
-    def test_none(self):
-        my_city = City()
-        self.assertIsNotNone(my_city.id)
-        self.assertIsNotNone(my_city.created_at)
-        self.assertIsNotNone(my_city.updated_at)
-
-    def test_dict(self):
-        my_city = City()
-        self.assertTrue("to_dict" in dir(my_city))
+    def test_pep8_conformance(self):
+        """Test that City conforms to PEP8"""
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/city.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
 
     def test_class_method_presence(self):
         """Test that the City methods are all present"""
@@ -107,7 +83,7 @@ class TestCity(unittest.TestCase):
 
     def test_docstring_presence(self):
         """Test that Module, Class, and methods all have a docstring"""
-        self.assertIsNot(City.__doc__, None)
+        self.assertIsNot(city.__doc__, None)
         self.assertIsNot(City.__doc__, None)
         self.assertIsNot(City.__init__.__doc__, None)
         self.assertIsNot(City.save.__doc__, None)
@@ -201,6 +177,3 @@ class TestCity(unittest.TestCase):
         ci = City()
         string = '['+ci.__class__.__name__+']'+' ('+ci.id+') '+str(ci.__dict__)
         self.assertEqual(string, ci.__str__())
-
-if __name__ == "__main__":
-    unittest.main()
