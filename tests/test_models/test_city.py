@@ -59,12 +59,3 @@ class TestCity(unittest.TestCase):
         self.assertIn('__class__', l1)
         self.assertIn('state_id', l1)
         self.assertIn('name', l1)
-
-    def test_docstring_presence(self):
-        """Test that Module, Class, and methods all have a docstring"""
-        self.assertIsNot(city.__doc__, None)
-        self.assertIsNot(City.__doc__, None)
-        self.assertIsNot(City.__init__.__doc__, None)
-        self.assertIsNot(City.save.__doc__, None)
-        self.assertIsNot(City.to_dict.__doc__, None)
-        self.assertIsNot(City.__str__.__doc__, None)
