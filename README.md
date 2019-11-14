@@ -20,15 +20,26 @@ The console can be run in interactive and non-interactive mode.
 
 To run a command in non-interactive mode, echo the desired command and pipe it into the console like so:
 ```
-echo "<command>" | ./console.py
+$ echo "<command>" | ./console.py
 ```
 ### Examples
 ```
-echo "create BaseModel" | ./console.py
-```
+$ echo "help" | ./console.py
+(hbnb)
 
-```
-echo "show BaseModel id-here" | ./console.py
+Documented commands (type help <topic>):
+========================================
+EOF  all  count  create  destroy  help  quit  show  update
+
+
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+
 ```
 
 ## Interactive Mode
@@ -44,10 +55,15 @@ Then type the desired commands inside of the program.
 
 ```
 (hbnb) create BaseModel
-```
+49faff9a-6318-451f-87b6-910505c55907
 
-```
-(hbnb) show BaseModel id-here"
+(hbnb) all BaseModel
+["[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}"]
+
+
+(hbnb) show BaseModel 49faff9a-6318-451f-87b6-910505c55907
+[BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
+
 ```
 Command | Description
 --- | ---
