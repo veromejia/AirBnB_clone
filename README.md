@@ -1,10 +1,10 @@
 # AirBnB_clone
 
 ---
-## Description
+## DESCRIPTION
 The Airbnb clone is a copy of the Airbnb. Only some features will be implemented, The goal of the project is to deploy on our own server a simple copy of the AirBnB website.
 
-## The command interpreter:
+## COMMAND INTERPRETER:
 will be used in subsequent AirBnb projects to manage objects and clases. in our case, we want to be able to manage the objects of our project:
 
 Create a new object (ex: a new User or a new Place)
@@ -13,7 +13,7 @@ Do operations on objects (count, compute stats, etc…)
 Update attributes of an object
 Destroy an object
 
-## Usage
+## USAGE
 The console can be run in interactive and non-interactive mode.
 
 ## Non-Interactive Mode
@@ -62,3 +62,10 @@ show <class> <id> | Print the string representation of an instance of a class
 destroy <class> <id> | Delete instance of a class
 all | Print all string representations of all instances
 updated | Updates an instance based on the class name and id by adding or updating attribute
+
+## MODELS
+
+
+## UNITTEST
+
+
