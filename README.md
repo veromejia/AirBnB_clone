@@ -68,11 +68,11 @@ File | Description
 --- | ---
 base_model.py |contain the parent class BaseModel and defines all common attributes/methods for other classes:
 user.py |inherits from BaseModel, and contains the publics class attribute for user
-amentiy.py | inherits from BaseModel, and contains the publics class attribute for user
-city.py | inherits from BaseModel, and contains the publics class attribute for user
-state.py | inherits from BaseModel, and contains the publics class attribute for user
-place.py | inherits from BaseModel, and contains the publics class attribute for user
-review.py | inherits from BaseModel, and contains the publics class attribute for user
+amentiy.py | inherits from BaseModel, and contains the publics class attribute for amenity
+city.py | inherits from BaseModel, and contains the publics class attribute for city
+state.py | inherits from BaseModel, and contains the publics class attribute for state
+place.py | inherits from BaseModel, and contains the publics class attribute for place
+review.py | inherits from BaseModel, and contains the publics class attribute for review
 __init.py__ |
 
 ## UNITTEST
