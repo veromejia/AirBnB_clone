@@ -4,7 +4,7 @@
 ## Description
 The Airbnb clone is a copy of the Airbnb. Only some features will be implemented, The goal of the project is to deploy on our own server a simple copy of the AirBnB website.
 
-## The command interpreter will be used in subsequent AirBnb projects to manage objects and clases. in our case, we want to be able to manage the objects of our project:
+### The command interpreter will be used in subsequent AirBnb projects to manage objects and clases. in our case, we want to be able to manage the objects of our project:
 
 Create a new object (ex: a new User or a new Place)
 Retrieve an object from a file, a database etc…
@@ -46,7 +46,7 @@ Then type the desired commands inside of the program.
 ```
 
 ```
-(hbnhb) show BaseModel id-here"
+(hbnb) show BaseModel id-here"
 ```
 
 ## Commands
@@ -61,4 +61,3 @@ Command | Description
 `destroy <class> <id>` | Delete instance of a class
 `all` | Print all string representations of all instances
 `updated` | Updates an instance based on the class name and id by adding or updating attribute
-
