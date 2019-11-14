@@ -53,4 +53,6 @@ class TestCity(unittest.TestCase):
     def test_pep8(self):
         style_test= pep8.StyleGuide(quiet=True).check_files(['models/city.py'])
         self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
-        
+
+if __name__ == '__main__':
+    unittest.main()
