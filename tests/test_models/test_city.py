@@ -21,10 +21,6 @@ class TestCity(unittest.TestCase):
         """Imports module"""
         pass
 
-    def test_pep8(self):
-        style_test= pep8.StyleGuide(quiet=True).check_files(['models/city.py'])
-        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
-
     def test_init(self):
         my_city = City()
         self.assertTrue(isinstance(my_city, City))
@@ -53,3 +49,8 @@ class TestCity(unittest.TestCase):
     def test_dict(self):
         my_city = City()
         self.assertTrue("to_dict" in dir(my_city))
+
+    def test_pep8(self):
+        style_test= pep8.StyleGuide(quiet=True).check_files(['models/city.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
+        
