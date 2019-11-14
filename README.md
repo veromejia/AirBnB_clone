@@ -49,9 +49,6 @@ Then type the desired commands inside of the program.
 ```
 (hbnb) show BaseModel id-here"
 ```
-
-## Commands
-
 Command | Description
 --- | ---
 help | display the documented command
@@ -63,8 +60,20 @@ destroy <class> <id> | Delete instance of a class
 all | Print all string representations of all instances
 updated | Updates an instance based on the class name and id by adding or updating attribute
 
-## MODELS
 
+## MODELS
+models contains all the files that contains the classes for the airbnb projects
+
+File | Description
+--- | ---
+base_model.py |contain the parent class BaseModel and defines all common attributes/methods for other classes:
+user.py |inherits from BaseModel, and contains the publics class attribute for user
+amentiy.py | inherits from BaseModel, and contains the publics class attribute for user
+city.py | inherits from BaseModel, and contains the publics class attribute for user
+state.py | inherits from BaseModel, and contains the publics class attribute for user
+place.py | inherits from BaseModel, and contains the publics class attribute for user
+review.py | inherits from BaseModel, and contains the publics class attribute for user
+__init.py__ |
 
 ## UNITTEST
 
