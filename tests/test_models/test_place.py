@@ -23,11 +23,6 @@ class TestPlace(unittest.TestCase):
 
     # ---------------task 9 ----------------
 
-    def test_pep8_conformance(self):
-        """Test that City conforms to PEP8"""
-        style_test= pep8.StyleGuide(quiet=True).check_files(['models/place.py'])
-        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
-
     def test_init(self):
         my_place = Place()
         self.assertTrue(isinstance(my_place, Place))
@@ -65,6 +60,11 @@ class TestPlace(unittest.TestCase):
     def test_dict(self):
         my_place = Place()
         self.assertTrue("to_dict" in dir(my_place))
+
+    def test_pep8_conformance(self):
+        """Test that City conforms to PEP8"""
+        style_test= pep8.StyleGuide(quiet=True).check_files(['models/place.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
 if __name__ == "__main__":
     unittest.main()
