@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
             storage.reload()
             my_dict = storage.all()
             for key in my_dict.keys():
-                if args[1] in str(my_dict[key]):
+                if args[0] in str(my_dict[key]):
                     count += 1
             print(count)
 
