@@ -22,9 +22,6 @@ class TestReview(unittest.TestCase):
         pass
 
     # ---------------task 9 ----------------
-    def test_pep8(self):
-        style_test = pep8.StyleGuide(quiet=True).check_files(['models/review.py'])
-        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
     def test_init(self):
         my_review = Review()
@@ -55,5 +52,10 @@ class TestReview(unittest.TestCase):
     def test_dict(self):
         my_review = Review()
         self.assertTrue("to_dict" in dir(my_review))
+
+    def test_pep8(self):
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/review.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
+
 if __name__ == "__main__":
     unittest.main()
