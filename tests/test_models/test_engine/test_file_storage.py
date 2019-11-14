@@ -5,6 +5,7 @@ import unittest
 from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
+import pep8
 import json
 import os
 
@@ -70,5 +71,8 @@ class TestFileStorage(unittest.TestCase):
             my_dict = json.load(f)
         self.assertIn(key, my_dict.keys())
 
+    def test_pep8(self):
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/engine/file_storage.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 if __name__ == "__main__":
     unittest.main()
