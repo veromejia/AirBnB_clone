@@ -1,6 +1,5 @@
-# AirBnB_clone
+# AirBnB_clone - The console
 
----
 ## DESCRIPTION
 The Airbnb clone is a copy of the Airbnb. Only some features will be implemented, The goal of the project is to deploy on our own server a simple copy of the AirBnB website.
 
@@ -67,6 +66,7 @@ Then type the desired commands inside of the program.
 [BaseModel] (49faff9a-6318-451f-87b6-910505c55907) {'created_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903293), 'id': '49faff9a-6318-451f-87b6-910505c55907', 'updated_at': datetime.datetime(2017, 10, 2, 3, 10, 25, 903300)}
 
 ```
+
 Command | Description
 --- | ---
 help | display the documented command
@@ -95,5 +95,11 @@ engine |contains the file file_storage.py that contains the class FileStorage th
 
 
 ## UNITTEST
-test files are inside of tests folder and 
+
+test files are inside of tests folder and
 All tests were executed using this command: python -m unittest discover tests
+
+## AUTHORS
+
+* Sudeep Raj  <864@holbertonschool.com>
+* Veronica Mejia <802@holbertonschoo.com>
