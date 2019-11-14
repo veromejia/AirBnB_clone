@@ -15,6 +15,7 @@ from models.engine.file_storage import FileStorage
 
 # ---------------- task 9 -------------------
 
+
 class TestCity(unittest.TestCase):
     """Test Cases For City Class"""
 
@@ -52,7 +53,7 @@ class TestCity(unittest.TestCase):
         self.assertTrue("to_dict" in dir(my_city))
 
     def test_pep8(self):
-        style_test= pep8.StyleGuide(quiet=True).check_files(['models/city.py'])
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/city.py'])
         self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
 if __name__ == '__main__':
