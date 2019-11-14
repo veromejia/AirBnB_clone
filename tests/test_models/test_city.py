@@ -1,13 +1,8 @@
 #!/usr/bin/python3
-"""
-Unittest for the City class
-Test files by using the following command line:
-python3 -m unittest tests/test_models/test_city.py
-"""
+"""Unittest for City class"""
+
 import unittest
 import pep8
-# import sys
-# import io
 from os import path, remove
 import datetime
 from models import base_model
@@ -20,7 +15,7 @@ from models.engine.file_storage import FileStorage
 
 
 class TestCity(unittest.TestCase):
-    """define variables and methods"""
+    """Test Cases For City Class"""
 
     def setUp(self):
         """Imports module"""
@@ -29,8 +24,7 @@ class TestCity(unittest.TestCase):
     def test_pep8_conformance(self):
         """Test that City conforms to PEP8"""
         style_test= pep8.StyleGuide(quiet=True).check_files(['models/city.py'])
-        self.assertEqual(style_test.total_errors, 0,
-                         "Found code style errors (and warnings).")
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
     def test_init(self):
         my_city = City()
