@@ -23,7 +23,7 @@ class TestReview(unittest.TestCase):
 
     # ---------------task 9 ----------------
     def test_pep8(self):
-        style_test = pep8.StyleGuide(quiet=True).check_files(['models/user.py'])
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/review.py'])
         self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
     def test_init(self):
