@@ -2,8 +2,16 @@
 """Unittest for Place class"""
 
 import unittest
-from models.place import Place
 import pep8
+from os import path, remove
+import datetime
+from models import base_model
+from models import place
+from models.base_model import BaseModel
+from models.place import Place
+from models import engine
+from models.engine import file_storage
+from models.engine.file_storage import FileStorage
 
 
 class TestPlace(unittest.TestCase):
@@ -18,8 +26,7 @@ class TestPlace(unittest.TestCase):
     def test_pep8_conformance(self):
         """Test that City conforms to PEP8"""
         style_test= pep8.StyleGuide(quiet=True).check_files(['models/city.py'])
-        self.assertEqual(style_test.total_errors, 0,
-                         "Found code style errors (and warnings).")
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
     def test_init(self):
         my_place = Place()

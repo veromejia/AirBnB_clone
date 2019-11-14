@@ -2,8 +2,16 @@
 """Unittest for Amenity class"""
 
 import unittest
-from models.amenity import Amenity
 import pep8
+from os import path, remove
+import datetime
+from models import base_model
+from models import amenity
+from models.base_model import BaseModel
+from models.amenity import Amenity
+from models import engine
+from models.engine import file_storage
+from models.engine.file_storage import FileStorage
 
 
 class TestAmenity(unittest.TestCase):
