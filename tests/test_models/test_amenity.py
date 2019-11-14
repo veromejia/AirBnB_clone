@@ -1,13 +1,8 @@
 #!/usr/bin/python3
-"""
-Unittest for the Amenity class
-Test files by using the following command line:
-python3 -m unittest tests/test_models/test_amenity.py
-"""
+"""Unittest for Amenity class"""
+
 import unittest
 import pep8
-# import sys
-# import io
 from os import path, remove
 import datetime
 from models import base_model
@@ -20,50 +15,40 @@ from models.engine.file_storage import FileStorage
 
 
 class TestAmenity(unittest.TestCase):
-    """define variables and methods"""
 
+    """Test Cases for Amenity Class"""
     def setUp(self):
-        """
-        Sets the public class attributes of the Amenity class back to ""
-        Method called to prepare the test fixture. This is called immediately
-        before calling the test method; other than AssertionError or SkipTest
-        """
-        Amenity.name = ""
+        """Imports module"""
+        pass
 
-    def tearDown(self):
-        """
-        Sets the public class attributes of the Amenity class back to ""
-        Method called immediately after the test method has been called and
-        the result recorded
-        """
-        del Amenity.name
-        if path.exists("file.json"):
-            remove("file.json")
+    def test_pep8(self):
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/user.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
-    def test_pep8_conformance(self):
-        """Test that State conforms to PEP8"""
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/amenity.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+    def test_init(self):
+        my_amenity = Amenity()
+        self.assertTrue(isinstance(my_amenity, Amenity))
 
-    def test_class_method_presence(self):
-        """Test that the Amenity methods are all present"""
-        l1 = dir(Amenity)
-        self.assertIn('__init__', l1)
-        self.assertIn('save', l1)
-        self.assertIn('to_dict', l1)
-        self.assertIn('__str__', l1)
+    def test_sub_class(self):
+        my_amenity = Amenity()
+        self.assertTrue(issubclass(my_amenity.__class__, Amenity))
 
-    def test_class_attribute_presence(self):
-        """Test that the Amenity attributes are all present"""
-        l1 = dir(Amenity)
-        self.assertIn('name', l1)
+    def test_attr(self):
+        my_amenity = Amenity()
+        self.assertTrue(hasattr(my_amenity, "name"))
 
-    def test_instance_method_presence(self):
-        """Test that the Amenity instance has the same methods"""
-        l1 = dir(Amenity())
-        self.assertIn('__init__', l1)
-        self.assertIn('save', l1)
-        self.assertIn('to_dict', l1)
-        self.assertIn('__str__', l1)
+    def test_none(self):
+        my_amenity = Amenity()
+        self.assertIsNotNone(my_amenity.id)
+        self.assertIsNotNone(my_amenity.created_at)
+        self.assertIsNotNone(my_amenity.updated_at)
+
+    def test_inheritance(self):
+        my_amenity = Amenity()
+        self.assertTrue(hasattr(my_amenity, "created_at"))
+        self.assertTrue(hasattr(my_amenity, "updated_at"))
+        self.assertTrue(hasattr(my_amenity, "id"))
+
+    def test_dict(self):
+        my_amenity = Amenity()
+        self.assertTrue("to_dict" in dir(my_amenity))
