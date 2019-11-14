@@ -15,6 +15,7 @@ from models.engine.file_storage import FileStorage
 
 # -----------task 9 -------------------
 
+
 class TestAmenity(unittest.TestCase):
 
     """Test Cases for Amenity Class"""
