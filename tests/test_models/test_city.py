@@ -13,6 +13,8 @@ from models import engine
 from models.engine import file_storage
 from models.engine.file_storage import FileStorage
 
+# ---------------- task 9 -------------------
+
 
 class TestCity(unittest.TestCase):
     """Test Cases For City Class"""
@@ -20,10 +22,6 @@ class TestCity(unittest.TestCase):
     def setUp(self):
         """Imports module"""
         pass
-
-    def test_pep8(self):
-        style_test= pep8.StyleGuide(quiet=True).check_files(['models/city.py'])
-        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
     def test_init(self):
         my_city = City()
@@ -53,3 +51,10 @@ class TestCity(unittest.TestCase):
     def test_dict(self):
         my_city = City()
         self.assertTrue("to_dict" in dir(my_city))
+
+    def test_pep8(self):
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/city.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
+
+if __name__ == '__main__':
+    unittest.main()

@@ -22,9 +22,6 @@ class TestState(unittest.TestCase):
         pass
 
     # ---------------task 9 ----------------
-    def test_pep8(self):
-        style_test = pep8.StyleGuide(quiet=True).check_files(['models/user.py'])
-        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
     def test_init(self):
         my_state = State()
@@ -50,10 +47,14 @@ class TestState(unittest.TestCase):
         self.assertTrue(hasattr(my_state, "updated_at"))
         self.assertTrue(hasattr(my_state, "id"))
 
-
     def test_dict(self):
         my_state = State()
         self.assertTrue("to_dict" in dir(my_state))
+
+    def test_pep8(self):
+        style_test = pep8.StyleGuide(quiet=True).check_files(['models/state.py'])
+        self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
+
 
 if __name__ == "__main__":
     unittest.main()
