@@ -54,11 +54,11 @@ Then type the desired commands inside of the program.
 
 Command | Description
 --- | ---
-`help` | display the documented command
-`quit` | Exit the program
-`EOF` | Exit the program
-`create <class>` | Create an instance of a class
-`show <class> <id>` | Print the string representation of an instance of a class
-`destroy <class> <id>` | Delete instance of a class
-`all` | Print all string representations of all instances
-`updated` | Updates an instance based on the class name and id by adding or updating attribute
+help | display the documented command
+quit | Exit the program
+EOF | Exit the program
+create <class> | Create an instance of a class
+show <class> <id> | Print the string representation of an instance of a class
+destroy <class> <id> | Delete instance of a class
+all | Print all string representations of all instances
+updated | Updates an instance based on the class name and id by adding or updating attribute
