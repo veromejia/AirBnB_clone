@@ -49,7 +49,7 @@ class TestAmenity(unittest.TestCase):
         my_amenity = Amenity()
         self.assertTrue("to_dict" in dir(my_amenity))
 
-        def test_pep8(self):
+    def test_pep8(self):
         style_test = pep8.StyleGuide(quiet=True).check_files(['models/amenity.py'])
         self.assertEqual(style_test.total_errors, 0, "Fix pep8 errors")
 
